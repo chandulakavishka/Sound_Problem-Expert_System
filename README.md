@@ -1,6 +1,6 @@
 # Computer Sound Problem Expert System
 
-![Computer Sound Problem Expert System]([path/to/your/image.png](https://www.google.com/url?sa=i&url=https%3A%2F%2Ffixingblog.com%2Flenovo-laptop-sound-not-working%2F&psig=AOvVaw25pBE9Klml68Rf1as-fTD5&ust=1700068728312000&source=images&cd=vfe&opi=89978449&ved=0CBIQjRxqFwoTCPD2xOn_w4IDFQAAAAAdAAAAABAh))
+(https://fixingblog.com/wp-content/uploads/2016/09/lenovo-laptop-sound-is-not-working.png)
 
 ## Introduction
 
