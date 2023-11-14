@@ -1,0 +1,110 @@
+ CLIPS (6.4.1 4/8/23)
+CLIPS>
+(defrule p1
+ ?p <- (start)
+ =>
+(printout t "Sound Problem? ")
+ (assert (problem (read)))
+ (retract ?p))
+---------------------R0---------------------------
+(defrule p2
+ (problem no)
+ =>
+ (printout t "Scratchy sound? ")
+ (assert (scratchySound (read))))
+---------------------R1---------------------------
+(defrule p3
+ (problem no)
+ (scratchySound no)
+ =>
+ (printout t "Speaker won't work? ")
+ (assert (speakerNotWork (read))))
+---------------------R2---------------------------
+(defrule rule1
+ (problem no)
+ (scratchySound no)
+ (speakerNotWork no)
+ =>
+ (printout t "Solution: Connect cable." crlf))
+---------------------R3---------------------------
+(defrule rule2
+ (problem no)
+ (scratchySound no)
+ (speakerNotWork yes)
+ =>
+ (printout t "Solution: Check sound cable." crlf))
+---------------------R4---------------------------
+(defrule p4
+ (problem no)
+ (scratchySound yes)
+ =>
+ (printout t "Signal inference? ")
+ (assert (signalInference (read))))
+---------------------R5---------------------------
+(defrule rule3
+ (problem no)
+ (scratchySound yes)
+ (signalInference no)
+ =>
+ (printout t "Solution: Check speaker." crlf))
+---------------------R6---------------------------
+(defrule rule4
+ (problem no)
+ (scratchySound yes)
+ (signalInference yes)
+ =>
+ (printout t "Solution: Away from radio frequency sources." crlf))
+---------------------R7---------------------------
+(defrule p5
+ (problem yes)
+ =>
+ (printout t "The sound card isn't detected? ")
+ (assert (cardNotDetected (read))))
+---------------------R8---------------------------
+(defrule p6
+ (problem yes)
+ (cardNotDetected no)
+ =>
+ (printout t "Driver warning? ")
+ (assert (driverWarning (read))))
+---------------------R9---------------------------
+(defrule rule5
+ (problem yes)
+ (cardNotDetected no)
+ (driverWarning no)
+ =>
+ (printout t "Solution: Driver conflict." crlf))
+---------------------R10--------------------------
+(defrule rule6
+ (problem yes)
+ (cardNotDetected no)
+ (driverWarning yes)
+ =>
+ (printout t "Solution: Install drivers." crlf))
+---------------------R11--------------------------
+(defrule p7
+ (problem yes)
+ (cardNotDetected yes)
+ =>
+ (printout t "Damage sound card? ")
+ (assert (damageSoundCard (read))))
+---------------------R12--------------------------
+(defrule rule7
+ (problem yes)
+ (cardNotDetected yes)
+ (damageSoundCard no)
+ =>
+ (printout t "Solution: Check connection point." crlf))
+---------------------R13--------------------------
+(defrule rule8
+ (problem yes)
+ (cardNotDetected yes)
+ (damageSoundCard yes)
+ =>
+ (printout t "Solution: Replace sound card." crlf))
+---------------------///--------------------------
+(deffacts startup
+ (start))
+---------------------///--------------------------
+(reset)
+(run)
